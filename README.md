@@ -1,1 +1,1 @@
-# The-Legend-of-Java
+# Jogo criado como projeto da disciplina de Orientação a Objetos
