@@ -1,13 +1,13 @@
 package legendOfJava;
 
-public abstract class Monster extends GameController {
+public abstract class Monster extends GameMaster {
 
-	private int maxDamage;  // The maximum to hit in an attack
-	private int minDamage; 	// The minimum to hit in an attack
+	private int maxDamage;
+	private int minDamage; 	
 	
-	public abstract void attack(GameController Thing);
+	public abstract void attack(GameMaster Thing);
 	
-	//GETTERS AND SETTERS
+
 	public int getMinDamage() 
 	{
 		return minDamage;

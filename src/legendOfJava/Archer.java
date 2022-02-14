@@ -3,22 +3,22 @@ package legendOfJava;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Mage extends Character {
+public class Archer extends Character {
 
 	Random rand = new Random(); 
-    Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner( System.in );
     int scanUserInt;
 
-	public Mage() {
-		this.setHealthStats(6);		
-        this.setDex(4);				
-        this.setInte(11); 			 
-        this.setStr(1); 			
+	public Archer() {
+		this.setHealthStats(7);		
+        this.setDex(10);			
+        this.setInte(2); 			
+        this.setStr(3); 			
         this.setHealth(this.getHealthStats() * 10);  
 	}
 	
 	public int damage() {
-		return (equippedWeapon.getWeaponMinDamage() + rand.nextInt(equippedWeapon.getWeaponMaxDamage() + 1 ) + this.getStr());
+		return (equippedWeapon.getWeaponMinDamage() + rand.nextInt(equippedWeapon.getWeaponMaxDamage() + 1 ) + this.getDex());
 	}
 	
 	public void lvUp() {
@@ -40,8 +40,8 @@ public class Mage extends Character {
 		int damage;
 		
 		if(equippedWeapon == null) {
-			Enemy.setHealth(Enemy.getHealth() - this.getInte());
-			damage = this.getInte();
+			Enemy.setHealth(Enemy.getHealth() - this.getDex());
+			damage = this.getDex();
 		} else {
 			damage = this.damage();
 			Enemy.setHealth(Enemy.getHealth() - damage);
@@ -65,17 +65,17 @@ public class Mage extends Character {
 	}
 	
 	public void specialAttack(GameMaster Enemy) {
-		int damage = (equippedWeapon.getWeaponMinDamage() + rand.nextInt(equippedWeapon.getWeaponMaxDamage() + 1) + this.getInte()) + (this.getInte()*2);
+		int damage = (equippedWeapon.getWeaponMinDamage() + rand.nextInt(equippedWeapon.getWeaponMaxDamage() + 1) + this.getDex()) + (this.getDex()*2);
 		
-		String[] specialAttacks = {"Nevasca", "Rel�mpago", "Bola de Fogo"};
+		String[] specialAttacks = {"Chuva de Flechas", "Rajada de Flechas", "Disparo Preciso"};
 		
 		int action = rand.nextInt(3);
 		
 		Enemy.setHealth(Enemy.getHealth() - damage);
 		
 		if(Enemy.getHealth() <= 0) {
-			System.out.println("Voc� usou " + specialAttacks[action] + "! Voc� causou " + damage);
-			System.out.println(Enemy.getName() + "est� morto.");
+			System.out.println("Voc� usou " + specialAttacks[action] + " e causou " + damage);
+			System.out.println(Enemy.getName() + " est� morto.");
 			System.out.println("Voc� ganhou " + Enemy.getMonsterExp() + " pontos de experi�ncia.");
 			
 			if(this.getLevel() * this.getLevel() * 100 > this.getExp() + Enemy.getMonsterExp()) {
@@ -89,20 +89,22 @@ public class Mage extends Character {
 		System.out.println("Voc� causou " + damage + " de dano.");
 		System.out.println("Vida restante do " + Enemy.getName() + ": " + Enemy.getHealth() + ".");
 	}
-
+	
 	@Override
 	public void battle(Monster enemy) {
-		double moves = this.getInte()/2;
+		double moves = this.getDex()/2;
 		moves = Math.floor(moves);
 		
-		while(enemy.getHealth() > 0) {		
+		while(enemy.getHealth() > 0) {
+			
 			System.out.println("O que voc� deseja fazer?");
 	    	System.out.println("(1) Ataque B�sico");
 	    	System.out.println("(2) Ataque Especial");
 	    	System.out.println("(3) Fugir");
 	    	scanUserInt =  input.nextInt(); 
 	    	
-	    	switch( scanUserInt ) {
+	    	switch( scanUserInt )
+	    	{
 	    		case 1:
 	    			this.basicAttack(enemy);
 	    			break;
@@ -126,5 +128,7 @@ public class Mage extends Character {
 	    	}
 		}
 	}
+	
+	
 
 }

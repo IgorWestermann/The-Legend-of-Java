@@ -1,21 +1,109 @@
 package legendOfJava;
 
-public abstract class Character extends GameController {
+import java.util.Scanner;
 
-	private int healthStats; 	// Points of health in the attributes
+public abstract class Character extends GameMaster {
+ 
+    Scanner input = new Scanner(System.in); 
+    int userInput; 
+	
+	private int healthStats; 	
+	private int inte;
     private int exp = 0; 
     private int expPoints = 0;
     
+    Weapon equippedWeapon;
     
-    public abstract void lvUp( ); // Method witch will be used when the character level's up 
+    public abstract void battle(Monster enemy);
     
-    public abstract void basicAttack( GameController Thing ); // Method to define the basic attacks from our classes
+    public Character() { 
+        this.setLevel(1); 
+    }
     
-    public abstract void specialAttack( GameController Thing); // Method to define the special attacks from our classes
+    public abstract void lvUp();
+    
+    public abstract void basicAttack( GameMaster Thing );
+    
+    public abstract void specialAttack( GameMaster Thing); 
     
     
-    //Getters and setters  
-  
+    public void chooseAtributes() {
+    	
+    	while(true) {
+	        System.out.println("Vida: "); 
+	        userInput = input.nextInt();
+	        
+	        if (userInput > this.getExpPoints() || userInput < 0 )
+	        	if(userInput > 0)
+	        		System.out.println("Voc� s� tem"+ this.getExpPoints() + " pontos!");	
+	        	else
+	        		System.out.println("N�o � permitido n�meros negativos");
+	        else {
+	        	this.setHealthStats(this.getHealthStats() + userInput);
+		        this.setHealth( this.getHealthStats() * 10 );
+		        this.setExpPoints( this.getExpPoints() - userInput );
+	        	break;
+	        } 
+        }
+        
+        while(true) {
+	        System.out.println("Destreza: "); 
+	        userInput = input.nextInt();
+	        
+	        if( userInput > this.getExpPoints() || userInput < 0 )
+	        	if(userInput > 0)
+	        		System.out.println("Voc� s� tem"+ this.getExpPoints() + " pontos!");	
+	        	else
+	        		System.out.println("N�o � permitido n�meros negativos");	
+	        else {
+	        	this.setDex(this.getDex() + userInput);
+		        this.setExpPoints( this.getExpPoints() - userInput );
+	        	break;
+	        } 
+        }
+        
+        while(true) {
+	        System.out.println("For�a: "); 
+	        userInput = input.nextInt();
+	       
+	        if( userInput > this.getExpPoints() || userInput < 0 )
+	        	if(userInput > 0)
+	        		System.out.println("Voc� s� tem"+ this.getExpPoints() + " pontos!");	
+	        	else
+	        		System.out.println("N�o � permitido n�meros negativos");
+	        else {
+	        	this.setStr( this.getStr() + userInput );
+		        this.setExpPoints( this.getExpPoints() - userInput );
+	        	break;
+	        } 
+        }
+       
+        while(true) {
+	        System.out.println("Intelig�ncia: " ); 
+	        userInput = input.nextInt();
+	        
+	        if(userInput > this.getExpPoints() || userInput < 0 )
+	        	if(userInput > 0)
+	        		System.out.println("Voc� s� tem"+ this.getExpPoints() + " pontos!");	
+	        	else
+	        		System.out.println("N�o � permitido n�meros negativos");
+	        else
+	        {
+	        	this.setInte( this.getInte() + userInput );
+		        this.setExpPoints( this.getExpPoints() - userInput );
+	        	break;
+	        }
+        }
+    }
+    
+	public int getInte() {
+		return inte;
+	}
+
+	public void setInte(int inte) {
+		this.inte = inte;
+	} 
+    
     public int getExp() { 
         return exp; 
     } 
@@ -35,8 +123,19 @@ public abstract class Character extends GameController {
     public int getHealthStats() { 
         return healthStats; 
     } 
+    
   
     public void setHealthStats(int healthStats) { 
         this.healthStats = healthStats; 
-    } 
+    }
+    
+    public Weapon getEquippedWeapon() {
+    	return equippedWeapon;
+    }
+    
+    public void setEquippedWeapon(Weapon equippedWeapon) {
+    	this.equippedWeapon = equippedWeapon;
+    }
+
+
 }
