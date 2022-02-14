@@ -14,10 +14,10 @@ private int dex_Min;
 	public void equip(Character person) {
 		if(person.getDex() < dex_Min) {
 			int requiredDex = this.getDex_Min() - person.getDex();
-			System.out.println("Vocï¿½ precisa de mais " + requiredDex + " pontos de destreza para equipar esse arco.");
+			System.out.println("Você precisa de mais " + requiredDex + " pontos de destreza para equipar esse arco.");
 		} else {
 			person.setEquippedWeapon(this);
-			System.out.println("Vocï¿½ equipou '" + this.getName() + "'.");
+			System.out.println("Você equipou '" + this.getName() + "'.");
 		}
 	}
 

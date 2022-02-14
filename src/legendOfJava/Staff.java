@@ -14,10 +14,10 @@ private int inteMin;
 	public void equip(Character person) {
 		if(person.getInte() < inteMin) {
 			int requiredInt = this.getInteMin() - person.getInte();
-			System.out.println("Vocï¿½ precisa de mais " + requiredInt + " pontos de inteligencia para equipar esse cajado.");
+			System.out.println("Você precisa de mais " + requiredInt + " pontos de inteligencia para equipar esse cajado.");
 		} else {
 			person.setEquippedWeapon(this);
-			System.out.println("Vocï¿½ equipou '" + this.getName() + "'.");
+			System.out.println("Você equipou '" + this.getName() + "'.");
 		}
 	}
 

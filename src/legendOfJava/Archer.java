@@ -24,9 +24,9 @@ public class Archer extends Character {
 	public void lvUp() {
 		this.setExpPoints(5);
 		this.setLevel(this.getLevel() + 1);
-		System.out.println("Parabï¿½ns, vocï¿½ subiu de nivel! Seu nivel atual ï¿½ " + this.getLevel());
-		System.out.println("Vocï¿½ ganhou mais 5 pontos para distribuir! Total de pontos: " + this.getExpPoints());
-		System.out.println("Deseja distribuir seus pontos agora? (1) Sim | (2) Nï¿½o");
+		System.out.println("Parabêns, você subiu de nivel! Seu nivel atual é " + this.getLevel());
+		System.out.println("Você ganhou mais 5 pontos para distribuir! Total de pontos: " + this.getExpPoints());
+		System.out.println("Deseja distribuir seus pontos agora? (1) Sim | (2) Não");
 		scanUserInt = input.nextInt();
 		if(scanUserInt == 1) {
 			chooseAtributes();
@@ -48,9 +48,9 @@ public class Archer extends Character {
 		}
 		
 		if(Enemy.getHealth() <= 0) {
-			System.out.println("Vocï¿½ causou " + damage + " de dano.");
-			System.out.println("Vocï¿½ derrotou " + Enemy.getName() + ".");
-			System.out.println("Vocï¿½ ganhou " + Enemy.getMonsterExp() + " pontos de experiï¿½ncia.");
+			System.out.println("Você causou " + damage + " de dano.");
+			System.out.println("Você derrotou " + Enemy.getName() + ".");
+			System.out.println("Você ganhou " + Enemy.getMonsterExp() + " pontos de expericência.");
 			
 			if(this.getLevel() * this.getLevel() * 100 > this.getExp() + Enemy.getMonsterExp()) {
 				this.setExp(this.getExp() + this.getMonsterExp());
@@ -60,7 +60,7 @@ public class Archer extends Character {
 			}
 			return;
 		}
-		System.out.println("Vocï¿½ causou " + damage + " de dano.");
+		System.out.println("Você causou " + damage + " de dano.");
 		System.out.println("Vida restante do " + Enemy.getName() + ": " + Enemy.getHealth() + ".");
 	}
 	
@@ -74,9 +74,9 @@ public class Archer extends Character {
 		Enemy.setHealth(Enemy.getHealth() - damage);
 		
 		if(Enemy.getHealth() <= 0) {
-			System.out.println("Vocï¿½ usou " + specialAttacks[action] + " e causou " + damage);
-			System.out.println(Enemy.getName() + " estï¿½ morto.");
-			System.out.println("Vocï¿½ ganhou " + Enemy.getMonsterExp() + " pontos de experiï¿½ncia.");
+			System.out.println("Você usou " + specialAttacks[action] + " e causou " + damage);
+			System.out.println(Enemy.getName() + " está morto.");
+			System.out.println("Você ganhou " + Enemy.getMonsterExp() + " pontos de expericência.");
 			
 			if(this.getLevel() * this.getLevel() * 100 > this.getExp() + Enemy.getMonsterExp()) {
 				this.setExp(this.getExp() + this.getMonsterExp());
@@ -86,7 +86,7 @@ public class Archer extends Character {
 			}
 			return;
 		}
-		System.out.println("Vocï¿½ causou " + damage + " de dano.");
+		System.out.println("Você causou " + damage + " de dano.");
 		System.out.println("Vida restante do " + Enemy.getName() + ": " + Enemy.getHealth() + ".");
 	}
 	
@@ -97,8 +97,8 @@ public class Archer extends Character {
 		
 		while(enemy.getHealth() > 0) {
 			
-			System.out.println("O que vocï¿½ deseja fazer?");
-	    	System.out.println("(1) Ataque Bï¿½sico");
+			System.out.println("O que Você deseja fazer?");
+	    	System.out.println("(1) Ataque Básico");
 	    	System.out.println("(2) Ataque Especial");
 	    	System.out.println("(3) Fugir");
 	    	scanUserInt =  input.nextInt(); 
@@ -115,11 +115,11 @@ public class Archer extends Character {
 	    				moves--;
 	    			}
 	    			else
-	    				System.out.println( "Vocï¿½ jï¿½ gastou todos seus pontos de Ataque Especial." );
+	    				System.out.println( "Você já gastou todos seus pontos de Ataque Especial." );
 	    			break;
 	    			
 	    		case 3:
-	    			System.out.println( "Vocï¿½ tenta fugir mas o " + enemy.getName() + " nï¿½o permite.");
+	    			System.out.println( "Você tenta fugir mas o " + enemy.getName() + " não permite.");
 	    			break;
 	    	}
 	    	

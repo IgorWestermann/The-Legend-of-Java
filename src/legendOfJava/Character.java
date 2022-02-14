@@ -35,9 +35,9 @@ public abstract class Character extends GameMaster {
 	        
 	        if (userInput > this.getExpPoints() || userInput < 0 )
 	        	if(userInput > 0)
-	        		System.out.println("Vocï¿½ sï¿½ tem"+ this.getExpPoints() + " pontos!");	
+	        		System.out.println("Você só tem"+ this.getExpPoints() + " pontos!");	
 	        	else
-	        		System.out.println("Nï¿½o ï¿½ permitido nï¿½meros negativos");
+	        		System.out.println("Não é permitido némeros negativos");
 	        else {
 	        	this.setHealthStats(this.getHealthStats() + userInput);
 		        this.setHealth( this.getHealthStats() * 10 );
@@ -52,9 +52,9 @@ public abstract class Character extends GameMaster {
 	        
 	        if( userInput > this.getExpPoints() || userInput < 0 )
 	        	if(userInput > 0)
-	        		System.out.println("Vocï¿½ sï¿½ tem"+ this.getExpPoints() + " pontos!");	
+	        		System.out.println("Você só tem"+ this.getExpPoints() + " pontos!");	
 	        	else
-	        		System.out.println("Nï¿½o ï¿½ permitido nï¿½meros negativos");	
+	        		System.out.println("Não é permitido némeros negativos");	
 	        else {
 	        	this.setDex(this.getDex() + userInput);
 		        this.setExpPoints( this.getExpPoints() - userInput );
@@ -63,14 +63,14 @@ public abstract class Character extends GameMaster {
         }
         
         while(true) {
-	        System.out.println("Forï¿½a: "); 
+	        System.out.println("Força: "); 
 	        userInput = input.nextInt();
 	       
 	        if( userInput > this.getExpPoints() || userInput < 0 )
 	        	if(userInput > 0)
-	        		System.out.println("Vocï¿½ sï¿½ tem"+ this.getExpPoints() + " pontos!");	
+	        		System.out.println("Você só tem"+ this.getExpPoints() + " pontos!");	
 	        	else
-	        		System.out.println("Nï¿½o ï¿½ permitido nï¿½meros negativos");
+	        		System.out.println("Não é permitido némeros negativos");
 	        else {
 	        	this.setStr( this.getStr() + userInput );
 		        this.setExpPoints( this.getExpPoints() - userInput );
@@ -79,14 +79,14 @@ public abstract class Character extends GameMaster {
         }
        
         while(true) {
-	        System.out.println("Inteligï¿½ncia: " ); 
+	        System.out.println("Inteligência: " ); 
 	        userInput = input.nextInt();
 	        
 	        if(userInput > this.getExpPoints() || userInput < 0 )
 	        	if(userInput > 0)
-	        		System.out.println("Vocï¿½ sï¿½ tem"+ this.getExpPoints() + " pontos!");	
+	        		System.out.println("Você só tem "+ this.getExpPoints() + " pontos!");	
 	        	else
-	        		System.out.println("Nï¿½o ï¿½ permitido nï¿½meros negativos");
+	        		System.out.println("Não só permitido némeros negativos");
 	        else
 	        {
 	        	this.setInte( this.getInte() + userInput );
