@@ -333,7 +333,7 @@ public class Game {
 			this.name = character.equippedWeapon.getName();
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Character is null");
 		}
 		hpLabelNumber.setText("" + playerHp);
 		nameLabelName.setText(name);
@@ -367,7 +367,7 @@ public class Game {
 		choice2.setText("Mago");
 		choice3.setText("Arqueiro");
 		playerName = JOptionPane.showInputDialog("Insira seu nome");
-		playerSetup(playerName);
+//		playerSetup(playerName);
 	}
 
 		
